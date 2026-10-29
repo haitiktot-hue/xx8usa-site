@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XX8USA — Demo giao diện</title>
+<style>
+:root{--gold:#ffd34f;--gold2:#ffad19;--blue:#09aaff;--bg:#05080d;--panel:#0b111b;--muted:#b7c0cf}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% 0,#172338 0,#05080d 55%);color:#fff;font-family:Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}.topbar{height:32px;background:#0b1018;border-bottom:1px solid #25354a;display:flex;align-items:center;padding:0 16px;color:#cdd6e3;font-size:12px}.lock{color:#8dd0ff;margin-right:8px}
+header{position:sticky;top:0;z-index:5;background:rgba(3,6,10,.96);border-bottom:1px solid #6e5317;display:flex;align-items:center;justify-content:space-between;padding:15px clamp(16px,4vw,54px);gap:20px}
+.logo{font-size:clamp(24px,3vw,38px);font-weight:1000;font-style:italic;letter-spacing:-1.5px;color:var(--gold);text-shadow:0 0 18px #ffb70055;white-space:nowrap}.logo small{display:block;font-size:9px;letter-spacing:1px;color:#fff;text-align:center}
+nav{display:flex;gap:22px;font-size:13px;font-weight:700;color:#e5e9ef}nav a:hover{color:var(--gold)}
+.actions{display:flex;gap:10px}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:30px;padding:12px 20px;font-weight:900;font-size:13px;border:1px solid var(--gold);transition:.2s;white-space:nowrap}.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}.outline{background:transparent}.gold{background:linear-gradient(120deg,#fff1a4,#ffc72d 48%,#e88b00);color:#171006;box-shadow:0 0 22px #ffb90035}.blue{background:linear-gradient(120deg,#1bc5ff,#006be7);border-color:#4edaff;box-shadow:0 0 22px #00aaff30}
+.hero{position:relative;overflow:hidden;text-align:center;padding:64px 20px 58px;background:radial-gradient(ellipse at 20% 50%,#4e2c05 0,transparent 35%),radial-gradient(ellipse at 80% 50%,#063b66 0,transparent 40%),linear-gradient(110deg,#080b10,#101827,#080b10);border-bottom:1px solid #624b18}
+.hero:before,.hero:after{content:"✦  ✧  ✦  ✧  ✦";position:absolute;color:#ffd24d55;font-size:32px;letter-spacing:22px;top:18px;left:4%;transform:rotate(-12deg)}.hero:after{top:auto;bottom:18px;left:auto;right:3%;transform:rotate(12deg)}
+.crown{font-size:35px;color:var(--gold);text-shadow:0 0 25px #ffbd26}.hero h1{font-size:clamp(42px,8vw,88px);margin:4px 0;color:#fff;letter-spacing:-3px;font-weight:1000;font-style:italic;text-shadow:3px 4px 0 #9a6100,0 0 30px #ffc52b66}.hero h1 span{color:var(--gold)}.hero h2{font-size:clamp(17px,3vw,29px);margin:0 0 18px;color:#ffdf70;font-style:italic}.hero p{color:#e1e7f0;margin:0 auto 25px;max-width:680px;line-height:1.6}.hero p.hero-spacer{display:none}.hero-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1180px;margin:28px auto;padding:0 20px}.feature{border:1px solid #8e6b1b;border-radius:16px;background:linear-gradient(145deg,#0d1420,#080b10);padding:19px 12px;text-align:center}.feature b{display:block;color:var(--gold);font-size:15px;margin:8px 0}.feature span{font-size:12px;color:var(--muted)}.ico{font-size:27px}
+.cta-panel{max-width:1180px;margin:26px auto;padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:18px;border:2px solid #b58a26;border-radius:22px;background:linear-gradient(120deg,#16120b,#09121d);box-shadow:0 0 28px #ffbf2222}.cta{padding:18px;border-radius:16px;text-align:center;background:#070c13;border:1px solid #5c4b22}.cta.telegram{border-color:#0879b9}.eyebrow{color:var(--gold);font-size:13px;font-weight:800;letter-spacing:1px}.cta h3{margin:12px 0 18px;font-size:clamp(20px,3vw,30px)}.cta p{color:var(--muted);font-size:13px}
+.section{max-width:1180px;margin:38px auto;padding:0 20px}.section-title{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:16px}.section-title h2{font-size:22px;margin:0}.section-title span{color:var(--gold);font-size:12px}.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.tile{min-height:125px;border:1px solid #6f551d;border-radius:13px;background:linear-gradient(145deg,#172237,#080b10);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px 8px;transition:.2s}.tile:hover{transform:translateY(-3px);border-color:var(--gold)}.tile .emoji{font-size:34px;margin-bottom:12px}.tile b{font-size:13px}.tile small{margin-top:5px;color:#aeb9c8;font-size:11px}
+.promo{margin-top:40px;padding:28px 20px;background:linear-gradient(100deg,#241806,#090e17,#241806);border-top:1px solid #99711e;border-bottom:1px solid #99711e;display:flex;align-items:center;justify-content:center;gap:30px;flex-wrap:wrap;text-align:center}.promo h2{margin:0;color:var(--gold);font-size:clamp(24px,4vw,36px)}.promo p{margin:8px 0 0;color:#d8deea}
+footer{padding:28px 20px 18px;background:#03060a;border-top:1px solid #243143;color:#aeb9c8;font-size:12px}.foot{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}.foot strong{color:var(--gold);font-size:23px}.footlinks{display:flex;gap:18px;flex-wrap:wrap}.legal{max-width:1180px;margin:20px auto 0;border-top:1px solid #1e2a39;padding-top:14px;line-height:1.5}.copyright{text-align:center;margin-top:18px;color:#788598}
+.notice{font-size:11px;color:#aab4c4;text-align:center;padding:14px}
+@media(max-width:850px){nav{display:none}.features{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:repeat(3,1fr)}.cta-panel{margin:20px;padding:12px}.actions .btn{padding:10px 12px;font-size:11px}}
+@media(max-width:520px){header{padding:12px}.logo{font-size:25px}.actions{gap:6px}.actions .btn{padding:9px 10px}.hero{padding:48px 16px}.features{gap:8px;padding:0 12px}.feature{padding:13px 6px}.feature b{font-size:12px}.feature span{font-size:11px}.cta-panel{grid-template-columns:1fr}.section{padding:0 12px}.grid{grid-template-columns:repeat(2,1fr);gap:9px}.tile{min-height:112px}.section-title h2{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="topbar"><span class="lock">🔒</span> XX8USA • TRANG CHỦ</div>
+<header>
+  <a class="logo" href="https://xx8usa.live" target="_blank" rel="noopener">♛ XX8USA<small>GIẢI TRÍ • KẾT NỐI CỘNG ĐỒNG</small></a>
+  <nav><a href="#home">TRANG CHỦ</a><a href="#games">DANH MỤC</a><a href="#links">LIÊN KẾT</a><a href="#footer">HỖ TRỢ</a></nav>
+  <div class="actions">
+    <a class="btn outline" href="https://xx8v77.com/home/login?id=246377336" target="_blank" rel="noopener">ĐĂNG NHẬP</a>
+    <a class="btn gold" href="https://xx8v77.com/home/register?id=246377336" target="_blank" rel="noopener">ĐĂNG KÝ</a>
+  </div>
+</header>
+<main id="home">
+<section class="hero">
+  <div class="crown">♛</div>
+  <h1><span>XX8</span>USA</h1>
+  <h2>KHÁM PHÁ THẾ GIỚI GIẢI TRÍ</h2>
+  <p class="hero-spacer" aria-hidden="true"></p>
+  <div class="hero-buttons"><a class="btn gold" href="https://xx8usa.live" target="_blank" rel="noopener">🌐 TRUY CẬP XX8USA.LIVE →</a><a class="btn blue" href="https://t.me/Elsuw08" target="_blank" rel="noopener">✈ TELEGRAM @Elsuw08 →</a></div>
+</section>
+<section class="features">
+  <div class="feature"><div class="ico">🛡️</div><b>ƯU TIÊN AN TOÀN</b><span>Thông tin được trình bày rõ ràng</span></div>
+  <div class="feature"><div class="ico">⚡</div><b>TRUY CẬP NHANH</b><span>Điều hướng thuận tiện</span></div>
+  <div class="feature"><div class="ico">🎧</div><b>KẾT NỐI CỘNG ĐỒNG</b><span>Kết nối qua Telegram</span></div>
+  <div class="feature"><div class="ico">📱</div><b>THÂN THIỆN DI ĐỘNG</b><span>Trải nghiệm đa thiết bị</span></div>
+</section>
+<section class="cta-panel" id="links">
+  <div class="cta"><div class="eyebrow">TRUY CẬP WEBSITE</div><h3>XX8USA.LIVE</h3><a class="btn gold" href="https://xx8usa.live" target="_blank" rel="noopener">MỞ WEBSITE →</a><p>Mở trang chủ trong tab mới.</p></div>
+  <div class="cta telegram"><div class="eyebrow" style="color:#59cfff">TELEGRAM CÁ NHÂN</div><h3>@Elsuw08</h3><a class="btn blue" href="https://t.me/Elsuw08" target="_blank" rel="noopener">MỞ TELEGRAM →</a><p>Liên kết hồ sơ cá nhân; chưa phải link nhóm.</p></div>
+</section>
+<section class="section" id="games">
+  <div class="section-title"><h2>✦ DANH MỤC KHÁM PHÁ</h2><span>NỔI BẬT</span></div>
+  <div class="grid">
+    <div class="tile"><div class="emoji">🎰</div><b>TRÒ CHƠI</b><small>Khám phá ngay</small></div>
+    <div class="tile"><div class="emoji">🎣</div><b>GIẢI TRÍ</b><small>Khám phá ngay</small></div>
+    <div class="tile"><div class="emoji">🃏</div><b>GAME BÀI</b><small>Khám phá ngay</small></div>
+    <div class="tile"><div class="emoji">⚽</div><b>THỂ THAO</b><small>Khám phá ngay</small></div>
+    <div class="tile"><div class="emoji">🎥</div><b>LIVE</b><small>Khám phá ngay</small></div>
+    <div class="tile"><div class="emoji">🎱</div><b>MINI GAME</b><small>Khám phá ngay</small></div>
+  </div>
+</section>
+<section class="promo"><div><h2>XX8USA • KẾT NỐI NGAY</h2><p>Chọn đúng liên kết bạn cần ở phía trên.</p></div><a class="btn gold" href="https://xx8v77.com/home/register?id=246377336" target="_blank" rel="noopener">ĐẾN TRANG ĐĂNG KÝ →</a></section>
+</main>
+<footer id="footer">
+  <div class="foot"><div><strong>♛ XX8USA</strong><p>Giải trí • Kết nối cộng đồng</p></div><div class="footlinks"><a href="https://xx8usa.live" target="_blank" rel="noopener">Website</a><a href="https://xx8v77.com/home/login?id=246377336" target="_blank" rel="noopener">Đăng nhập</a><a href="https://xx8v77.com/home/register?id=246377336" target="_blank" rel="noopener">Đăng ký</a><a href="https://t.me/Elsuw08" target="_blank" rel="noopener">Telegram</a></div></div>
+  <div class="legal">Vui lòng đọc kỹ điều khoản và chính sách áp dụng trước khi sử dụng dịch vụ. Chỉ dành cho người đủ tuổi theo quy định tại nơi cư trú. Chơi có trách nhiệm.</div>
+  <div class="copyright">© 2026 XX8USA. All rights reserved.</div>
+</footer>
+</body>
+</html>
